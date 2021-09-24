@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function addclickCounter() {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("display").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+	}
+function deductclickCounter() {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)-1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("display").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+	}
+function resetclickCounter() {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = 0;
+    } 
+    document.getElementById("display").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+	}
+function removeclickCounter() {
+    if (localStorage.clickcount) {
+      localStorage.removeItem("clickcount");
+    } 
+    document.getElementById("clearmessage").innerHTML = "You have removed all local storage";
+	}
+</script>
+</head>
+<body>
+
+<p><button onclick="addclickCounter()" type="button">Add here</button></p>
+<p><button onclick="deductclickCounter()" type="button">Deduct here</button></p>
+<p><button onclick="resetclickCounter()" type="button">Reset here</button></p>
+<p><button onclick="removeclickCounter()" type="button">Remove here</button></p>
+<div id="display"></div>
+<div id="clearmessage"></div>
+<p>Click the button and the counter will increase.</p>
+<p>Even Browser Closed, local storage will not be affected.</p>
+
+
+</body>
+</html>
